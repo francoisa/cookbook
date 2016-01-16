@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'cookbookApp.services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -32,7 +33,12 @@ angular
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',
-        controllerAs: 'about'
+        controllerAs: 'contact'
+      })
+      .when('/create', {
+        templateUrl: 'views/create.html',
+        controller: 'CreateCtrl',
+        controllerAs: 'create'
       })
       .otherwise({
         redirectTo: '/'

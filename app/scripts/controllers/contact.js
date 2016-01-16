@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name cookbookApp.controller:AboutCtrl
+ * @name cookbookApp.controller:ContactCtrl
  * @description
- * # AboutCtrl
+ * # ContactCtrl
  * Controller of the cookbookApp
  */
 angular.module('cookbookApp')

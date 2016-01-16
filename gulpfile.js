@@ -8,6 +8,11 @@ var lazypipe = require('lazypipe');
 var rimraf = require('rimraf');
 var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
+var util = require('gulp-util');
+var sass = require('gulp-sass');
+var log = util.log;
+
+var sassFiles = "app/styles/**/*.scss";
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -199,6 +204,13 @@ gulp.task('copy:fonts', function () {
 
 gulp.task('build', ['clean:dist'], function () {
   runSequence(['images', 'copy:extras', 'copy:fonts', 'client:build']);
+});
+
+gulp.task("sass", function(){ 
+	log("Generate CSS files " + (new Date()).toString());
+    gulp.src(sassFiles)
+		.pipe(sass({ style: 'expanded' }))
+		.pipe(gulp.dest("app/css"));
 });
 
 gulp.task('default', ['build']);
